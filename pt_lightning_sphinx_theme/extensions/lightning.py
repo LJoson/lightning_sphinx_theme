@@ -24,6 +24,7 @@ from pt_lightning_sphinx_theme.extensions.pytorch_tutorials import (
     ReactGreeter,
     SlackButton,
     TwoColumns,
+    AppCardDirective
 )
 
 
@@ -168,6 +169,7 @@ def setup(app):
     app.add_directive("react_greeter", ReactGreeter)
     app.add_directive("twocolumns", TwoColumns)
     app.add_directive("customcalloutitem", CustomCalloutItemDirective)
+    app.add_directive("app_card", AppCardDirective)
     app.add_directive("tutoriallist", TutorialListDirective)
 
     app.connect("env-purge-doc", purge_cards)
