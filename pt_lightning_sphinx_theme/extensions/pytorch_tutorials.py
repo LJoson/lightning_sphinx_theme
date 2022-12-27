@@ -132,7 +132,6 @@ CARD_TEMPLATE = """
     </div>
 """
 
-
 class CustomCalloutItemDirective(Directive):
     option_spec = {
         "header": directives.unchanged,
@@ -333,6 +332,105 @@ DISPLAY_ITEM_TEMPLATE = """
 """
 
 
+class AppCardDirective(Directive):
+    #    :title: Scale and build a product
+    #    :description: Production-ready generative AI app
+    #    :width: 280
+    #    :height
+    #    :app_id: todo
+    #    :image: https://lightning-ai-docs.s3.amazonaws.com/scale_n_build_v1.jpg
+    #    :target: https://lightning.ai/muse
+    #    :tags: AI App
+    option_spec = {
+        "title": directives.unchanged,
+        "description": directives.unchanged,
+        "width": directives.unchanged,
+        "height": directives.unchanged,
+        "margin": directives.unchanged,
+        "image": directives.unchanged,
+        "target": directives.unchanged,
+        "preview": directives.unchanged,
+        "tags": directives.unchanged,
+    }
+
+    def run(self):
+        try:
+            if "title" in self.options:
+                title = self.options["title"]
+            else:
+                raise ValueError("title not doc found")
+
+            if "description" in self.options:
+                description = self.options["description"]
+            else:
+                description = ""
+
+            if "width" in self.options:
+                width = self.options["width"]
+
+            if "image" in self.options:
+                image = self.options["image"]
+            else:
+                image = "'_static/images/icon.svg'"
+
+            if "target" in self.options:
+                target = self.options["target"]
+            else:
+                target = ""
+            if "preview" in self.options:
+                preview = self.options["preview"]
+            else:
+                preview = ""
+            if "tags" in self.options:
+                tags = self.options["tags"]
+            else:
+                tags = ""
+
+        except FileNotFoundError as e:
+            print(e)
+            return []
+        except ValueError as e:
+            print(e)
+            raise
+            return []
+
+        # card_rst = APP_CARD_TEMPLATE.format(
+        #     title=title,
+        #     description=description,
+        #     width=width,
+        #     height=height,
+        #     image=image,
+        #     target=target,
+        #     tags=tags,
+        # )
+        card_rst = get_react_component_rst(
+            "AppCardDirective",title=title,description=description,width=width,image=image,target=target,tags=tags)
+        card_list = StringList(card_rst.split("\n"))
+        callout = nodes.paragraph()
+        self.state.nested_parse(card_list, self.content_offset, callout)
+        return [callout]
+
+APP_CARD_TEMPLATE = """
+.. raw:: html
+
+        <div class="lit-card" style="width: {width}px; height: {height}px;">
+            <div class="header">
+                <img src="{image}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
+                <div class="app-card-cover + hidden-details"></div>
+            </div>
+            <div class="app-title-holder">
+                <div class="app-title">{title}</div>
+                <div class="app-tag">{tags}</div>
+            </div>
+            <div class="app-description">{description}</div>
+            <div class="footer">
+                <button class="secondary-button" style="opacity: 1;">
+                <img class="play-button" src="_static/images/icon-view.svg" style="filter: brightness(1) invert(0.5);">Preview</button>
+                <button class="primary-button" style="display: none;">
+                <img class="play-button" src="_static/images/icon-launch.svg">Go</button>
+            </div>
+        </div>
+"""
 class LikeButtonWithTitle(Directive):
     option_spec = {
         "padding": directives.unchanged,
@@ -377,7 +475,6 @@ class LikeButtonWithTitle(Directive):
         callout = nodes.paragraph()
         self.state.nested_parse(callout_list, self.content_offset, callout)
         return [callout]
-
 
 class ReactGreeter(Directive):
     def run(self):
