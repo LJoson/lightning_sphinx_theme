@@ -115,7 +115,7 @@
 <div class="container-fluid header-holder tutorials-header" id="header-holder">
   <div class="container">
     <div class="header-container">
-      <a class="header-logo" href="{{ theme_variables.external_urls['home'] }}" aria-label="PyTorch Lightning">
+      <a class="header-logo" href="{{ theme_variables.external_urls['home'] }}" aria-label="URE">
       <!--  <img class="call-to-action-img" src="{{ pathto('_static/images/logo-lightning-icon.png', 1) }}"/> -->
       </a>
 
@@ -126,29 +126,29 @@
           </li>
 
           <li>
-            <a href="{{ theme_variables.external_urls['blog'] }}">Blog</a>
+            <a href="{{ theme_variables.external_urls['competition'] }}">Competition</a>
           </li>
 
           <li {%- if theme_pytorch_project == 'docs' %} class="active docs-active"{% endif %}>
             <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
               <a class="resource-option with-down-orange-arrow">
-                Docs
+                Developer Tools
               </a>
               <div class="resources-dropdown-menu">
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch-lightning.readthedocs.io/en/stable/">
-                  <span class="dropdown-title">PyTorch Lightning</span>
+                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['legged_sdk'] }}">
+                  <span class="dropdown-title">Unitree_legged_sdk</span>
                 </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://torchmetrics.readthedocs.io/en/stable/">
-                  <span class="dropdown-title">TorchMetrics</span>
+                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['camera_sdk'] }}">
+                  <span class="dropdown-title">Unitree_camera_sdk</span>
                 </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://lightning-flash.readthedocs.io/en/stable/">
-                  <span class="dropdown-title">Lightning Flash</span>
+                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['z1_sdk'] }}">
+                  <span class="dropdown-title">Unitree_z1_sdk</span>
                 </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://lightning-transformers.readthedocs.io/en/stable/">
-                  <span class="dropdown-title">Lightning Transformers</span>
+                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['actuator_sdk'] }}">
+                  <span class="dropdown-title">Unitree_actuator_sdk</span>
                 </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://lightning-bolts.readthedocs.io/en/stable/">
-                  <span class="dropdown-title">Lightning Bolts</span>
+                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['unitree_ros'] }}">
+                  <span class="dropdown-title">Unitree_ROS</span>
                 </a>
             </div>
           </li>
@@ -183,8 +183,11 @@
             <a href="{{ theme_variables.external_urls['github'] }}">GitHub</a>
           </li>
 
-          <li>
+          <!--<li>
             <a href="https://www.lightning.ai/">Train on the cloud with Lightning</a>
+          </li> -->
+          <li>
+            <a href="{{ theme_variables.external_urls['event'] }}">Event For Developers</a>
           </li>
         </ul>
       </div>
@@ -477,7 +480,7 @@
     <div class="container-fluid">
       <div class="container">
         <div class="mobile-main-menu-header-container">
-          <a class="header-logo" href="{{ theme_variables.external_urls['home'] }}" aria-label="PyTorch Lightning"></a>
+          <a class="header-logo" href="{{ theme_variables.external_urls['home'] }}" aria-label="URE"></a>
           <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
         </div>
       </div>
@@ -490,7 +493,7 @@
             <a href="{{ theme_variables.external_urls['get_started'] }}">Get Started</a>
           </li>
 
-          <li>
+          <!-- <li>
             <a href="{{ theme_variables.external_urls['blog'] }}">Blog</a>
           </li>
 
@@ -518,7 +521,7 @@
             <li>
               <a href="https://lightning-bolts.readthedocs.io/en/stable/">Lightning Bolts</a>
             </li>
-          </ul>
+          </ul> -->
 
           <!--<li class="resources-mobile-menu-title">
             Resources
@@ -550,9 +553,9 @@
             <a href="{{ theme_variables.external_urls['github'] }}">Github</a>
           </li>
 
-          <li>
+          <!-- <li>
             <a href="https://www.grid.ai/">Grid.ai</a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
