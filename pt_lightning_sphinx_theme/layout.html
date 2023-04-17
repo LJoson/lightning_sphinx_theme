@@ -125,9 +125,9 @@
             <a href="{{ theme_variables.external_urls['get_started'] }}">Get Started</a>
           </li>
 
-          <li>
+          <!-- <li>
             <a href="{{ theme_variables.external_urls['competition'] }}">Competition</a>
-          </li>
+          </li> -->
 
           <li {%- if theme_pytorch_project == 'docs' %} class="active docs-active"{% endif %}>
             <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
@@ -186,9 +186,9 @@
           <!--<li>
             <a href="https://www.lightning.ai/">Train on the cloud with Lightning</a>
           </li> -->
-          <li>
+          <!-- <li>
             <a href="{{ theme_variables.external_urls['event'] }}">Event For Developers</a>
-          </li>
+          </li> -->
         </ul>
       </div>
 
@@ -266,7 +266,7 @@
 
       <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
         <div class="pytorch-content-left">
-
+<!--
         {% if theme_pytorch_project == 'tutorials' %}
 
           <div class="pytorch-call-to-action-links">
@@ -289,7 +289,7 @@
             </div>
           </div>
 
-        {% endif %}
+        {% endif %} -->
 
         {%- block content %}
           {% if theme_style_external_links|tobool %}
